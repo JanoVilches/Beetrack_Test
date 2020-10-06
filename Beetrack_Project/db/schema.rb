@@ -10,6 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_10_06_191648) do
 
+  create_table "locations", force: :cascade do |t|
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "sent_at"
+    t.integer "vehicle_id", null: false
+    t.boolean "is_actual"
+    t.index ["vehicle_id"], name: "index_locations_on_vehicle_id"
+  end
+
+  create_table "vehicles", force: :cascade do |t|
+    t.string "idVehicle", null: false
+    t.index ["idVehicle"], name: "index_vehicles_on_idVehicle", unique: true
+  end
+
+  add_foreign_key "locations", "vehicles"
 end

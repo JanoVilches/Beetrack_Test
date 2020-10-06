@@ -25,7 +25,7 @@
 </head>
 
 <body style='background-color:'>
-    <div class="container-fluid mb-5" align="center" style="padding: 40px;">
+    <div class="container-fluid mb-5" align="center" style="padding: 20px;">
         <table>
             <tr>
                 <td align="center" style="padding: 5px;">
@@ -34,7 +34,7 @@
             </tr>
             <tr>
                 <td align="center">
-                    <div id='Map' class="container mb-5" align="center" style="height: 800px; width: 1400px"></div>
+                    <div id='Map' class="container mb-5" align="center" style="height: 750px; width: 1400px"></div>
                 </td>
             </tr>
         </table>
@@ -65,7 +65,8 @@
         });
 
         //set marks to the vehicles locations
-        L.marker([20.23, -0.56], {icon: new vehicle_icon()}).addTo(gps_map).bindPopup("<center><b>HA-3452</b><br>2016-06-02 20:45:00</center>");       
+        L.marker([20.23, -0.56], {icon: new vehicle_icon()}).addTo(gps_map).bindPopup("<center><b>HA-3452</b><br>2016-06-02 20:45:00</center>");
+        L.marker([51.5, -0.09], {icon: new vehicle_icon()}).addTo(gps_map).bindPopup("<center><b>HA-3452</b><br>2016-06-02 20:45:00</center>"); 
 
     </script>
 

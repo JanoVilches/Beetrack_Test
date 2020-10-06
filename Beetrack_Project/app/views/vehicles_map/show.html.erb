@@ -43,8 +43,11 @@
 
     <script>
 
+        gps_waypoints = <%= raw @data || 'null' %>;
+        console.log(gps_waypoints);
+
         //create the map instance, and configurations
-	    var gps_map = L.map('Map').setView([51.505, -0.09], 13);
+	    var gps_map = L.map('Map').setView([51.50, -0.09], 13);
 
 	    //set the map layer.
         L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
@@ -66,9 +69,15 @@
             }
         });
 
+        var i;
+        for (i=0; i < gps_waypoints.length; i++){
+
+            L.marker([gps_waypoints[i]['latitude'], gps_waypoints[i]['longitude']], {icon: new vehicle_icon()}).addTo(gps_map).bindPopup(gps_waypoints[i]['vehicle']);
+        }
+
         //set marks to the vehicles locations
-        L.marker([20.23, -0.56], {icon: new vehicle_icon()}).addTo(gps_map).bindPopup("<center><b>HA-3452</b><br>2016-06-02 20:45:00</center>");
-        L.marker([51.5, -0.09], {icon: new vehicle_icon()}).addTo(gps_map).bindPopup("<center><b>HA-3452</b><br>2016-06-02 20:45:00</center>"); 
+        //L.marker([20.23, -0.56], {icon: new vehicle_icon()}).addTo(gps_map).bindPopup("<center><b>HA-3452</b><br>2016-06-02 20:45:00</center>");
+        //L.marker([51.5, -0.09], {icon: new vehicle_icon()}).addTo(gps_map).bindPopup("<center><b>HA-3452</b><br>2016-06-02 20:45:00</center>"); 
 
     </script>
 

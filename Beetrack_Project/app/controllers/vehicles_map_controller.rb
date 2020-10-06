@@ -16,9 +16,11 @@ class VehiclesMapController < ApplicationController
         h[:longitude] = l.longitude
         h[:vehicle] = v.idVehicle
 
-        @data.push(h.to_json)
+        @data.push(h)
       end
     end
+
+    @data = @data.to_json
 
     puts @data
   end
